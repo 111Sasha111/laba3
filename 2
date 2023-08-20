@@ -1,0 +1,50 @@
+#include <iostream>//библиотека ввода-вывода
+#include <stdio.h>//библиотека ввода-вывода
+
+using namespace std;//использование пространства имен стандартной библиотеки
+
+int main()//главная функция
+{
+     FILE *num , *output;//объявление указателей файловых переменных num и output
+     output = fopen("endgame.txt","w");//открытие файла с именем endgame.txt для записи
+     fprintf(output,"entered number/n");//запись строки "entered number/n" в файл output
+     fclose(output);//закрытие файла output
+     int  OriginalNumber = 0;//объявление переменной OriginalNumber со значением по умолчанию 0
+	 int  EnteredNumber = 0;//объявление переменной EnteredNumber со значением по умолчанию 0
+	 int  Count_Number =0;//объявление переменной Count_Number со значением по умолчанию 0
+	 char  newline;//объявление символьной переменной newline
+     bool completed = false;
+     while(completed == false) {
+         cout<<"Entere Number";
+     	 cin >> EnteredNumber;
+     	 num = fopen("startgame.txt", "r");
+     	 fscanf(num,"%d",&OriginalNumber);
+         	if (EnteredNumber > OriginalNumber) {
+         	    output = fopen("endgame.txt","w");
+                fprintf(output,"%d",EnteredNumber);
+                fclose(output);
+			    cout <<"enter a lower number";
+			    Count_Number++;
+         	} 
+			if (EnteredNumber < OriginalNumber) {
+			    output = fopen("endgame.txt","w");
+			    fprintf(output,"%d",EnteredNumber);
+			    fclose(output);
+		        cout <<"enter a larger number";
+			    Count_Number++;
+			}
+			if (EnteredNumber == OriginalNumber){
+			    output = fopen("endgame.txt","w");
+			    fprintf(output,"%d",EnteredNumber);
+			    fclose(output);
+			    cout <<"comleted";
+			    Count_Number++;
+			    completed = true;
+			}
+		 fclose(num);
+		}
+	 output = fopen("endgame.txt","w");
+     fprintf(output,"total numbers entered: %d", Count_Number);
+     fclose(output);
+     return 0;
+}
