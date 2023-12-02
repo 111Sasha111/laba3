@@ -1,36 +1,36 @@
-#include <iostream>//библиотека ввода-вывода
-#include <cstdlib>//библиотека для работы с памятью
-#include <fstream>//библиотека для работы с файлами
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
  
-using namespace std;//использование пространства имен стандартной библиотеки
+using namespace std;
  
-int main()//главная функция
+int main()
 {  
-    ifstream in("predel.txt");//Создание объекта "in" класса ifstream для чтения из файла "predel.txt"
-    ofstream out("kolmax.txt");//Создание объекта "out" класса ofstream для записи в файл "kolmax.txt"
+    ifstream in("predel.txt");
+    ofstream out("kolmax.txt");
     
-    if(in.is_open() && out.is_open())//Проверка, открыты ли файлы для чтения и записи
+    if(in.is_open() && out.is_open())
     {
-        int N, num, count=0, sum_even=0, max=0;//Объявление переменных "N", "num", "count", "sum_even" и "max"
-        in >> N;//Чтение значения из файла "predel.txt" в переменную "N"
+        int N, num, count=0, sum_even=0, max=0;
+        in >> N;
         
-        cout << "Enter integer numbers:\n";//вывод сообщения пользователю
+        cout << "Enter integer numbers:\n";
         do//Цикл
         {        
-            cin >> num;//Ввод значения пользователем и его сохранение в переменную "num"
-            if (num%2==0) sum_even+=num;//Если введенное число "num" является четным, то оно добавляется к сумме четных чисел "sum_even"           
-            if (count==0 || num>max) max=num;//Если "count" равно 0 (т.е. введено первое число) или "num" больше значения "max", то значение "max" присваивается "num"
-            count++;//Увеличение значения "count" на 1
+            cin >> num;
+            if (num%2==0) sum_even+=num;           
+            if (count==0 || num>max) max=num;
+            count++;
         }
-        while (sum_even<=N);//Цикл, который выполняется хотя бы один раз и продолжается до тех пор, пока условие в скобках "sum_even<=N" выполняется
-        in.close();//Закрытие файла "predel.txt"
+        while (sum_even<=N);
+        in.close();
     
-        out << count << " " << max << "\n";//Запись значений переменных "count" и "max" в файл "kolmax.txt"
-        cout << "File recorded";//вывод сообщения пользователю
-        out.close();//Закрытие файла "kolmax.txt"
+        out << count << " " << max << "\n";
+        cout << "File recorded";
+        out.close();
     }
     else cout << "Unable to open file\n";
     
-    system("pause");//Выполнение команды "pause" в командной строке
-    return 0;//успешное завершение программы с кодом 0
+    system("pause");
+    return 0;
 }
