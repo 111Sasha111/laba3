@@ -1,18 +1,18 @@
-#include <iostream>//библиотека ввода-вывода
-#include <stdio.h>//библиотека ввода-вывода
+#include <iostream>
+#include <stdio.h>
 
-using namespace std;//использование пространства имен стандартной библиотеки
+using namespace std;
 
-int main()//главная функция
+int main()
 {
-     FILE *num , *output;//объявление указателей файловых переменных num и output
-     output = fopen("endgame.txt","w");//открытие файла с именем endgame.txt для записи
-     fprintf(output,"entered number/n");//запись строки "entered number/n" в файл output
-     fclose(output);//закрытие файла output
-     int  OriginalNumber = 0;//объявление переменной OriginalNumber со значением по умолчанию 0
-	 int  EnteredNumber = 0;//объявление переменной EnteredNumber со значением по умолчанию 0
-	 int  Count_Number =0;//объявление переменной Count_Number со значением по умолчанию 0
-	 char  newline;//объявление символьной переменной newline
+     FILE *num , *output;
+     output = fopen("endgame.txt","w");
+     fprintf(output,"entered number/n");
+     fclose(output);
+     int  OriginalNumber = 0;
+	 int  EnteredNumber = 0;
+	 int  Count_Number =0;
+	 char  newline;
      bool completed = false;
      while(completed == false) {
          cout<<"Entere Number";
